@@ -1,0 +1,20 @@
+public class Accounts {
+    public Id RecordId {get;set;}
+   	public List<Account> accList = new List<Account>();
+    public Accounts(){}
+    public List<SelectOption> accounts {
+    get {
+            accList = [Select name from Account];
+            accounts = new List<SelectOption>();
+            for(Account acc : accList)
+            {
+                accounts.add(new SelectOption(acc.name,acc.name));
+            }
+            return accounts;
+        }set;  
+    }
+    public PageReference generateInvoice(){
+        PageReference requestPage = new pagereference('https://slogistics-dev-ed.lightning.force.com/apex/Invoice');
+        return requestPage;
+    }
+}

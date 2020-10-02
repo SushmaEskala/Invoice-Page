@@ -1,0 +1,22 @@
+<apex:page showHeader="false" standardController="Account" renderAs="PDF">
+    <apex:form >
+        <center><h1>INVOICE</h1></center>
+        <apex:pageBlock title="Billing Address">
+            <apex:pageBlockSection >
+                <apex:outputField label="Billing Street :" value="{!Account.BillingStreet}"/>
+                <apex:outputField label="Billing City :" value="{!Account.BillingCity}"/>
+                <apex:outputField label="Billing State :" value="{!Account.BillingState}"/>
+                <apex:outputField label="Billing Country :" value="{!Account.BillingCountry}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Shipping Address">
+            <apex:pageBlockSection >
+                <apex:outputField label="Shipping Street :" value="{!Account.ShippingStreet}"/>
+                <apex:outputField label="Shipping City :" value="{!Account.ShippingCity}"/>
+                <apex:outputField label="Shipping State :" value="{!Account.ShippingState}"/>
+                <apex:outputField label="Shipping Country :" value="{!Account.ShippingCountry}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
