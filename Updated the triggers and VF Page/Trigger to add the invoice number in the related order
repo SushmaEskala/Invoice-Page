@@ -1,0 +1,11 @@
+trigger PopulateInvoiceNumber on Invoice__c (after insert) {
+    List<Order> orderList = new List<Order>();
+	for(Invoice__c i:trigger.new){
+        for(Order o:[select OrderNumber,Invoice__c from Order]){
+            if(o.OrderNumber==i.Order__c){
+                o.Invoice__c=i.Name;
+            }        
+        }
+    }
+    
+}

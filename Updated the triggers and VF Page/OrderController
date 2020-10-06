@@ -1,0 +1,9 @@
+public class OrderController {
+      public Order record{get; private set;}
+      public OrderController(ApexPages.StandardController controller) {
+        record = [select Id,Transporter_Detail__r.Name,BillingCountry, BillingPostalCode, BillingState, BillingCity, BillingStreet,
+                  ShippingCountry, ShippingCity,ShippingPostalCode,ShippingStreet,ShippingState,EffectiveDate,Invoice__r.Name
+                  FROM Order WHERE Id = :controller.getId()
+                ]; 
+      }
+}

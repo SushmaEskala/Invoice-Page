@@ -1,0 +1,8 @@
+trigger GenerateInvoiceNumber on Order (after insert) {
+    List<Invoice__c> invoiceList = new List<Invoice__c>();
+    for(Order o:trigger.new){
+        Invoice__c invoice = new Invoice__c(Invoice_Details__c='Sushma',Order__c = o.Id);
+        invoiceList.add(invoice);
+    }
+    insert invoiceList;
+}

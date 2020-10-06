@@ -1,0 +1,10 @@
+trigger AssignDriver on Order (before insert) {
+    List<TransPorter_Details__c> transporterList = [select Name,State__c from Transporter_Details__c];
+    for(Order o: trigger.new){
+        for(Transporter_Details__c td:transporterList){
+            if(o.BillingState == td.State__c){
+                o.Transporter_Detail__c = td.Id;
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<apex:page standardController="Order" extensions="OrderController" renderAs="PDF">
+	<div align="center">
+        <apex:sectionHeader title="INVOICE" />
+    </div>
+    
+  	<apex:pageBlock >
+        
+        	<apex:pageBlockSection >
+                
+                <apex:outputField label="INVOICE NUMBER :" value="{!record.Invoice__r.Name}"/><br/>
+                <apex:outputField label="INVOICE DATE :" value="{!record.EffectiveDate}"/><br/>
+                <apex:outputField label="DRIVER_NAME :" value="{!record.Transporter_Detail__r.Name}"/>
+                
+      		</apex:pageBlockSection>
+    	
+      	
+        
+      	<apex:pageBlockSection title="Address Section" columns="1">
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Billing Address" />
+            <apex:outputPanel >
+                <apex:outputText value="{!record.BillingStreet}" />
+                <apex:outputText value="{!record.BillingCity}" />&nbsp;<br />
+              	<apex:outputText value="{!record.BillingPostalCode}" />&nbsp;
+                <apex:outputText value="{!record.BillingState}" />&nbsp;
+                <apex:outputText value="{!record.BillingCountry}" /><br />
+            </apex:outputPanel>
+          </apex:pageBlockSectionItem>
+          <apex:pageBlockSectionItem >
+            <apex:outputLabel value="Shipping Address" />
+            <apex:outputPanel >
+                <apex:outputText value="{!record.ShippingStreet}" />
+                <apex:outputText value="{!record.ShippingCity}" />&nbsp;<br />
+              	<apex:outputText value="{!record.ShippingPostalCode}" />&nbsp;
+                <apex:outputText value="{!record.ShippingState}" />&nbsp;
+                <apex:outputText value="{!record.ShippingCountry}" /><br />
+            </apex:outputPanel>
+          </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        
+  </apex:pageBlock>
+</apex:page>
